@@ -19,18 +19,24 @@ class AppleFrameworkRemakeTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-//    func testCVNotificationCenter() {
-//        let notification = Notification(name: .init("notification"), object: self, userInfo: ["data": 1])
-//        CVNotificationCenter.default.addObserver(self, selector: #selector(gotNotification), name: .init("notification"))
-//        CVNotificationCenter.default.post(notification)
+    func testCVNotificationCenter() {
+        let notification = Notification(name: .init("notification"), object: self, userInfo: ["data": 1])
+        CVNotificationCenter.default.addObserver(self, selector: #selector(gotNotification), name: .init("notification"))
+        CVNotificationCenter.default.post(notification)
 //        CVNotificationCenter.default.removeObserver(self)
 //        CVNotificationCenter.default.post(notification)
-//    }
-//
-//    @objc private func gotNotification(noti: Notification) {
-//
-//    }
-
+        
+        self.expectation(forNotification: .init("notification"), object: self) { notification in
+            let userInfo = notification.userInfo as! [String: Int]
+            XCTAssertTrue(userInfo["data"]! == 1, "Must equal to One")
+            return true
+        }
+    }
+    
+    @objc private func gotNotification(noti: Notification) {
+        print("Get notification")
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {

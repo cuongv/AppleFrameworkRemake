@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11616A7A22CC8342005C4A0D /* CVTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11616A7922CC8342005C4A0D /* CVTableView.swift */; };
+		1171BEB522C4BA1D00EA6586 /* CVScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1171BEB422C4BA1D00EA6586 /* CVScrollView.swift */; };
 		117F8AEF22B0DB8800587A8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117F8AEE22B0DB8800587A8D /* AppDelegate.swift */; };
 		117F8AF122B0DB8800587A8D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117F8AF022B0DB8800587A8D /* ViewController.swift */; };
 		117F8AF422B0DB8800587A8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 117F8AF222B0DB8800587A8D /* Main.storyboard */; };
@@ -28,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		11616A7922CC8342005C4A0D /* CVTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVTableView.swift; sourceTree = "<group>"; };
+		1171BEB422C4BA1D00EA6586 /* CVScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVScrollView.swift; sourceTree = "<group>"; };
 		117F8AEB22B0DB8800587A8D /* AppleFrameworkRemake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleFrameworkRemake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		117F8AEE22B0DB8800587A8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		117F8AF022B0DB8800587A8D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +108,8 @@
 			isa = PBXGroup;
 			children = (
 				117F8B0F22B0DC0B00587A8D /* CVNotificationCenter.swift */,
+				1171BEB422C4BA1D00EA6586 /* CVScrollView.swift */,
+				11616A7922CC8342005C4A0D /* CVTableView.swift */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -209,6 +215,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1171BEB522C4BA1D00EA6586 /* CVScrollView.swift in Sources */,
+				11616A7A22CC8342005C4A0D /* CVTableView.swift in Sources */,
 				117F8AF122B0DB8800587A8D /* ViewController.swift in Sources */,
 				117F8B1022B0DC0B00587A8D /* CVNotificationCenter.swift in Sources */,
 				117F8AEF22B0DB8800587A8D /* AppDelegate.swift in Sources */,
