@@ -74,24 +74,18 @@ class CVScrollView: UIView {
         let newOffset = contentOffset - translation
 
         if newOffset.x > 0 && newOffset.x < contentSize.width - bounds.width {
-            subviews.filter {
-                $0 != hScrollBar && $0 != vScrollBar
-            }.forEach {
-                $0.center.x = $0.center.x + translation.x
-            }
+            bounds.origin.x = bounds.origin.x - translation.x
             contentOffset.x = newOffset.x
-            hScrollBar.updateSizeAndPosition()
         }
-
+        
         if newOffset.y > 0 && newOffset.y < contentSize.height - bounds.height {
-            subviews.filter {
-                $0 != hScrollBar && $0 != vScrollBar
-            }.forEach {
-                $0.center.y = $0.center.y + translation.y
-            }
+            bounds.origin.y = bounds.origin.y - translation.y
             contentOffset.y = newOffset.y
-            vScrollBar.updateSizeAndPosition()
         }
+        
+        hScrollBar.updateSizeAndPosition()
+        vScrollBar.updateSizeAndPosition()
+        
         gesture.setTranslation(.zero, in: self)
     }
 }
@@ -110,16 +104,17 @@ private class CVScrollBar: UIView {
     
     func updateSizeAndPosition() {
         guard let superview = superview as? CVScrollView else { return }
+        
         if isHorizontal {
             let width = superview.bounds.width * superview.bounds.width / superview.contentSize.width
-            frame = CGRect(x: (superview.bounds.width - width) * superview.contentOffset.x / (superview.contentSize.width - superview.bounds.width),
-                y: superview.bounds.height - CVScrollBar.thickness - 1,
+            frame = CGRect(x: (superview.bounds.width - width) * superview.contentOffset.x / (superview.contentSize.width - superview.bounds.width) + superview.bounds.origin.x,
+                y: superview.bounds.height - CVScrollBar.thickness - 1 + superview.bounds.origin.y,
                 width: superview.bounds.width * superview.bounds.width / superview.contentSize.width,
                 height: CVScrollBar.thickness)
         } else {
             let height = superview.bounds.height * superview.bounds.height / superview.contentSize.height
-            frame = CGRect(x: superview.bounds.width - CVScrollBar.thickness - 1,
-                y: (superview.bounds.height - height) * superview.contentOffset.y / (superview.contentSize.height - superview.bounds.height),
+            frame = CGRect(x: superview.bounds.width - CVScrollBar.thickness - 1  + superview.bounds.origin.x,
+                y: (superview.bounds.height - height) * superview.contentOffset.y / (superview.contentSize.height - superview.bounds.height) + superview.bounds.origin.y,
                 width: CVScrollBar.thickness,
                 height: height)
         }
