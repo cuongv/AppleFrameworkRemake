@@ -32,7 +32,7 @@ fileprivate extension Dictionary where Key == CVDictionaryKey, Value ==  Selecto
 public final class CVNotificationCenter {
     static let `default` = CVNotificationCenter()
     
-    private let queue = DispatchQueue(label: "CVNotificationQueue")
+    private let queue = DispatchQueue(label: "CVNotificationQueue", attributes: .concurrent)
     private var observersDictionary = [CVDictionaryKey: Selector]()
     
     func addObserver(_ observer: NSObject, selector: Selector, name: Notification.Name) {
